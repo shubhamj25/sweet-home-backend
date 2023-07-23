@@ -3,19 +3,19 @@ A spring boot application serving as a backend for a hotel booking application
 
 The project has five microservices -
 
-# ◎ apiGateway : 
+## ◎ apiGateway : 
 * This serves as the gateway to the booking and payment microservices.
 * Configured on `http://localhost:9191`
 
-# ◎ eurekaServer ->
+## ◎ eurekaServer ->
 * This microservice helps maintain and track URLs for our microservices. Enables load balancing and provides usage stats for better optimization.
 * Configured on `http://localhost:8761`
 
-# ◎ configSever ->
+## ◎ configSever ->
 * This microservices help us maintain application.properties for our various services running on different locations, which gives us the flexibility to change the configuration of either of the microservices at runtime.
 * Configured on `http://localhost:8888`
 
-# ◎ booking ->
+## ◎ booking ->
 * This is our leading service for booking rooms at the hotel.
 * In this, I am using the h2 database to provide on-demand quick storage for our booking microservice, which has its h2-console enabled and can be accessed on `http://localhost:8081/console`
 * Error handling in invalid payment mode or booking id cases while executing a transaction is handled using controller advice with a custom exception handler.
@@ -78,7 +78,7 @@ We get a validated booking with a valid transaction id which confirms our paymen
 }
 ```
 
-# ◎ payment (Dummy payment microservice)
+## ◎ payment (Dummy payment microservice)
 * This is an internal microservice our booking service uses to execute transactions.
 * It uses feign client to communicate with the booking microservice synchronously to acknowledge the transactions with a valid transaction id.
 
